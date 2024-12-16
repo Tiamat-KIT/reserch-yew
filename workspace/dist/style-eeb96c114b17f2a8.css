@@ -1,0 +1,14 @@
+:root {
+    font-family: Georgia, serif;
+}
+
+body {
+    background-color: #eee;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
