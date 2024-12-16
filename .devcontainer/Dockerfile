@@ -17,7 +17,8 @@ RUN apt update -y \
 
 RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh \
     && rustup target add wasm32-unknown-unknown \
-    && cargo install --locked trunk
+    && cargo install --locked trunk \
+    && cargo +nightly install miniserve
 
 # デフォルトシェルをbashに設定
 RUN chsh -s /bin/bash ${USER_NAME}

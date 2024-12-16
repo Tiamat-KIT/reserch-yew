@@ -3,6 +3,11 @@ use wasm_bindgen::{prelude::Closure, JsCast};
 use web_sys::{js_sys::Function, HtmlElement};
 use yew::prelude::*;
 
+struct ButtonItem {
+    text: String,
+    on_click: yew::Callback
+}
+
 /* fn submit_handler(elem: HtmlElement) {
     let drag_start_binding = Closure::wrap(Box::new(|event: DragEvent| {
         event.prevent_default();
@@ -43,17 +48,15 @@ pub fn drag_drop_fields() -> Html {
             submit_handler
         ) as Box<dyn FnMut(HtmlElement)>).as_ref().dyn_ref::<Function>().unwrap());
     }); */
-
     let buttons = vec!["box","triangle","rainbow_triangle"];
-    let button_html = buttons.iter().map(move |btn_text| html! {
-        <div class="item" draggable="true">{format!("{}",btn_text)}</div>
-    }).collect::<Html>();
 
 
     html! {
         <div class="box">
             <div class="unrender">
-                {button_html}
+                {buttons.iter().map(move |btn_text| html! {
+                    <button class="item" /* draggable="true" */>{format!("{}",btn_text)}</button>
+                }).collect::<Html>()}
             </div>
             <div class="render">
             

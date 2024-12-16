@@ -34,3 +34,5 @@ web-time = "1.1.0"
 form-yew = "0.1.1"
 stylist = { version = "0.13.0", features = ["yew_integration"] }
 
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
